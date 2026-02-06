@@ -1,0 +1,107 @@
+Light Theme Conversion Complete
+=================================
+
+Date: 2026-02-06
+All dark theme elements converted to light theme as requested.
+
+Changes Applied:
+================
+
+1. Main Background & Layout
+   - Main app background: bg-[#1a1a1a] → bg-gray-50
+   - Sidebar background: bg-gray-900 → bg-white
+   - Top header background: bg-gray-900 → bg-white
+   - All borders: border-gray-800 → border-gray-200
+
+2. Onboarding Screens (All 4 Steps)
+   - All backgrounds changed from bg-[#1a1a1a] to bg-gray-50
+   - Maintained white cards for content
+
+3. Studio Screen
+   - Heading: text-white → text-gray-900
+   - Subheading: text-gray-400 → text-gray-600
+   - Loading skeleton: bg-gray-800 → bg-gray-200
+
+4. Content Builder Screen
+   - Heading: text-white → text-gray-900
+   - Subheading: text-gray-400 → text-gray-600
+   - Section headings: text-white → text-gray-900
+   - Canvas background: bg-gray-800 → bg-white with border-gray-200
+   - Canvas empty state icon: text-gray-500 → text-gray-400
+   - Canvas empty state text: text-gray-400 → text-gray-600
+   - Pre-filled insight cards: bg-gray-700 → bg-gray-50, hover:bg-gray-600 → hover:bg-gray-100
+   - Card text: text-white → text-gray-900, text-gray-300 → text-gray-600
+   - Constraints panel heading: text-white → text-gray-900
+
+5. Drafts Screen
+   - Heading: text-white → text-gray-900
+   - Subheading: text-gray-400 → text-gray-600
+   - Voice adjustment panel: bg-gray-800 → bg-gray-100
+   - Voice labels: text-white → text-gray-900, text-gray-300 → text-gray-700
+   - Slider labels: text-gray-400 → text-gray-600
+
+6. Insights Screen (Hidden but Updated)
+   - Heading: text-white → text-gray-900
+   - Subheading: text-gray-400 → text-gray-600
+
+7. Explore Ideas Screen (Hidden but Updated)
+   - Heading: text-white → text-gray-900
+   - Subheading: text-gray-400 → text-gray-600
+
+8. Sidebar Navigation
+   - Brand text: text-white → text-gray-900
+   - Toggle button: text-gray-400 → text-gray-600, hover:text-white → hover:text-gray-900
+   - Nav items inactive: text-gray-400 → text-gray-600, hover:text-white → hover:text-gray-900
+   - Nav items hover background: hover:bg-gray-800 → hover:bg-gray-100
+   - Nav items active: maintained bg-[#9333EA] text-white (purple remains)
+   - Footer buttons: text-gray-400 → text-gray-600, hover effects updated
+
+9. Top Header
+   - Background: bg-gray-900 → bg-white
+   - Border: border-gray-800 → border-gray-200
+   - Text: text-gray-400 → text-gray-600
+
+Color Scheme:
+=============
+- Primary purple: #9333EA (maintained)
+- Dark purple: #7E22CE (maintained)
+- Main background: bg-gray-50
+- Card background: bg-white
+- Sidebar/Header: bg-white
+- Borders: border-gray-200
+- Primary text: text-gray-900
+- Secondary text: text-gray-600
+- Tertiary text: text-gray-500
+- Hover backgrounds: bg-gray-100
+- Disabled/placeholder: text-gray-400
+
+Generate Ideas Functionality:
+==============================
+✓ VERIFIED FUNCTIONAL
+
+The Generate Ideas button:
+- Located in Content Builder > Constraints panel (line 936-951)
+- Properly connected to generateIdeas() function
+- Disabled when no insights selected or loading
+- Shows loading state with spinner when active
+- Function uses correct string format: i.split('\n')[0]
+- Successfully calls AI agent with AGENT_IDS.ideaGenerator
+- Pre-populates draft with first idea's hook and concept
+- Navigates to drafts screen on success
+- Handles errors gracefully with console logging
+
+Workflow:
+1. User selects insights in Content Builder
+2. User adjusts constraints (format, effort, tone)
+3. User clicks "Generate Ideas" button
+4. AI agent generates idea_cards
+5. First idea pre-fills the draft
+6. User automatically navigated to Drafts screen
+
+Status: ALL TASKS COMPLETE ✓
+=============================
+- Background changed to light theme throughout entire app
+- All text colors updated for readability on light backgrounds
+- Purple accent colors maintained
+- Generate Ideas button verified functional
+- End-to-end workflow tested and working
