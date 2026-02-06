@@ -153,6 +153,28 @@ interface ReflectionResponse {
 // ============================================================================
 
 export default function Home() {
+  // Overall Insights - Hardcoded list for Content Builder
+  const OVERALL_INSIGHTS = [
+    "Your audience saves honesty more than polish.\nWhy? Posts where you speak personally get revisited more often.",
+    "Your strongest posts start with uncertainty, not confidence.\nWhy? When you admit you're figuring things out, people stay longer.",
+    "Text-led hooks work better for you than visual openings.\nWhy? Your audience reads before they commit to watching.",
+    "This idea needed a clearer hook in the first few seconds. (Missed)\nWhy? The concept was strong, but it arrived too late.",
+    "Posting earlier could have helped this content travel further. (Missed)\nWhy? Your audience was more active before this went live.",
+    "Your audience connects more with reflection than instruction.\nWhy? Thoughtful pauses invite people to engage, not just consume.",
+    "You perform better when you explain less and reveal more.\nWhy? Leaving space encourages saves and re-reads.",
+    "Your most engaging posts feel like thoughts, not lessons.\nWhy? Content that feels unfinished invites participation.",
+    "This post worked emotionally but lacked a clear takeaway. (Missed)\nWhy? People connected, but didn't know what to do with it.",
+    "Your audience responds more when you show process, not results.\nWhy? Behind-the-scenes moments build trust over time."
+  ]
+
+  // Canvas-specific insights - Pre-filled options
+  const CANVAS_INSIGHTS = [
+    "Your strongest posts start with uncertainty, not confidence.\nWhy? When you admit you're figuring things out, people stay longer.",
+    "Text-led hooks work better for you than visual openings.\nWhy? Your audience reads before they commit to watching.",
+    "This idea needed a clearer hook in the first few seconds.\nWhy? The concept was strong, but it arrived too late.",
+    "Posting earlier could have helped this content travel further.\nWhy? Your audience was more active before this went live."
+  ]
+
   // Navigation & Screen State
   const [currentScreen, setCurrentScreen] = useState<'onboarding' | 'studio' | 'content' | 'explore' | 'drafts' | 'insights'>('onboarding')
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
@@ -171,7 +193,7 @@ export default function Home() {
   const [studioLoading, setStudioLoading] = useState(false)
 
   // Content State
-  const [selectedInsights, setSelectedInsights] = useState<Pattern[]>([])
+  const [selectedInsights, setSelectedInsights] = useState<string[]>([])
   const [contentFormat, setContentFormat] = useState('carousel')
   const [contentEffort, setContentEffort] = useState(50)
   const [contentTone, setContentTone] = useState(50)
@@ -422,9 +444,8 @@ export default function Home() {
               </div>
               <div className="flex gap-3">
                 <Button
-                  variant="outline"
                   onClick={() => setOnboardingStep(0)}
-                  className="flex-1"
+                  className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                 >
                   <FaArrowLeft className="mr-2" /> Back
                 </Button>
@@ -472,9 +493,8 @@ export default function Home() {
               </div>
               <div className="flex gap-3">
                 <Button
-                  variant="outline"
                   onClick={() => setOnboardingStep(1)}
-                  className="flex-1"
+                  className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                 >
                   <FaArrowLeft className="mr-2" /> Back
                 </Button>
@@ -547,9 +567,8 @@ export default function Home() {
               <p className="text-gray-400 mt-1">Your content command center</p>
             </div>
             <Button
-              variant="outline"
               onClick={loadReflection}
-              className="text-white border-gray-600"
+              className="bg-[#9333EA] hover:bg-[#7E22CE] text-white"
             >
               <FaBrain className="mr-2" /> View Reflection
             </Button>
@@ -677,16 +696,14 @@ export default function Home() {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="h-16 text-white border-gray-600"
+                  className="h-16 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                   onClick={() => setCurrentScreen('drafts')}
                 >
                   <FaFileAlt className="mr-2" /> Continue Last Session
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="h-16 text-white border-gray-600"
+                  className="h-16 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                   onClick={() => {
                     if (allPatterns.length > 0) {
                       setSelectedInsights(allPatterns.slice(0, 2))
@@ -718,8 +735,9 @@ export default function Home() {
             <div className="col-span-3 space-y-4">
               <h3 className="text-lg font-semibold text-white">Insights</h3>
               <div className="space-y-3">
-                {allPatterns.map((pattern, idx) => {
-                  const isSelected = selectedInsights.some(s => s.theme === pattern.theme)
+                {OVERALL_INSIGHTS.map((insight, idx) => {
+                  const isSelected = selectedInsights.includes(insight)
+                  const [mainText, whyText] = insight.split('\n')
                   return (
                     <Card
                       key={idx}
@@ -730,9 +748,9 @@ export default function Home() {
                       }`}
                       onClick={() => {
                         if (isSelected) {
-                          setSelectedInsights(selectedInsights.filter(s => s.theme !== pattern.theme))
+                          setSelectedInsights(selectedInsights.filter(s => s !== insight))
                         } else {
-                          setSelectedInsights([...selectedInsights, pattern])
+                          setSelectedInsights([...selectedInsights, insight])
                         }
                       }}
                     >
@@ -741,11 +759,14 @@ export default function Home() {
                           <span className={`text-xs px-2 py-1 rounded ${
                             isSelected ? 'bg-white/20' : 'bg-gray-100 text-gray-600'
                           }`}>
-                            {Math.round(pattern.confidence * 100)}% confidence
+                            Insight {idx + 1}
                           </span>
                           {isSelected && <FaCheckCircle />}
                         </div>
-                        <div className="text-sm font-medium">{pattern.theme}</div>
+                        <div className="text-sm font-medium mb-1">{mainText}</div>
+                        <div className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
+                          {whyText}
+                        </div>
                       </CardContent>
                     </Card>
                   )
@@ -758,34 +779,59 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-white mb-4">Canvas</h3>
               <Card className="bg-gray-800 border-gray-700 min-h-[500px] p-6">
                 {selectedInsights.length === 0 ? (
-                  <div className="flex items-center justify-center h-full text-gray-500">
-                    <div className="text-center">
-                      <FaLightbulb className="text-5xl mx-auto mb-4 opacity-50" />
-                      <p>Select insights to build your content strategy</p>
+                  <div className="space-y-4">
+                    <div className="text-center mb-6">
+                      <FaLightbulb className="text-5xl mx-auto mb-4 text-gray-500 opacity-50" />
+                      <p className="text-gray-400">Select from these key insights to build your content strategy</p>
+                    </div>
+                    <div className="space-y-3">
+                      {CANVAS_INSIGHTS.map((insight, idx) => {
+                        const [mainText, whyText] = insight.split('\n')
+                        return (
+                          <Card
+                            key={idx}
+                            className="cursor-pointer bg-gray-700 border-gray-600 hover:bg-gray-600 transition-all"
+                            onClick={() => setSelectedInsights([...selectedInsights, insight])}
+                          >
+                            <CardContent className="p-4">
+                              <div className="flex items-start gap-3">
+                                <FaPlus className="text-[#9333EA] mt-1 flex-shrink-0" />
+                                <div className="flex-1">
+                                  <div className="text-sm font-medium text-white mb-1">{mainText}</div>
+                                  <div className="text-xs text-gray-300">{whyText}</div>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        )
+                      })}
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {selectedInsights.map((insight, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-white rounded-lg p-4 shadow-lg"
-                      >
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="font-semibold mb-1">{insight.theme}</div>
-                            <div className="text-sm text-gray-600">{insight.evidence}</div>
+                    {selectedInsights.map((insight, idx) => {
+                      const [mainText, whyText] = insight.split('\n')
+                      return (
+                        <div
+                          key={idx}
+                          className="bg-white rounded-lg p-4 shadow-lg"
+                        >
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="font-semibold mb-1">{mainText}</div>
+                              <div className="text-sm text-gray-600">{whyText}</div>
+                            </div>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => setSelectedInsights(selectedInsights.filter((_, i) => i !== idx))}
+                            >
+                              <FaTimes />
+                            </Button>
                           </div>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setSelectedInsights(selectedInsights.filter((_, i) => i !== idx))}
-                          >
-                            <FaTimes />
-                          </Button>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 )}
               </Card>
@@ -909,9 +955,8 @@ export default function Home() {
             </div>
             <div className="flex gap-3">
               <Button
-                variant="outline"
                 onClick={() => setShowContextRail(!showContextRail)}
-                className="text-white border-gray-600"
+                className="bg-[#9333EA] hover:bg-[#7E22CE] text-white"
               >
                 <FaChartBar className="mr-2" />
                 {showContextRail ? 'Hide' : 'Show'} Context
@@ -971,8 +1016,7 @@ export default function Home() {
                     <div className="flex gap-2 pt-2">
                       <Button
                         size="sm"
-                        variant="outline"
-                        className="flex-1"
+                        className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                         onClick={() => {
                           setSelectedIdea(idea)
                           setShowRefinementPanel(true)
@@ -1148,9 +1192,8 @@ export default function Home() {
             </div>
             <div className="flex gap-3">
               <Button
-                variant="outline"
-                className="text-white border-gray-600"
                 onClick={() => setDraftVersion(v => v + 1)}
+                className="bg-[#9333EA] hover:bg-[#7E22CE] text-white"
               >
                 <FaHistory className="mr-2" /> Version History
               </Button>
@@ -1398,8 +1441,7 @@ export default function Home() {
 
             <div className="flex gap-3 pt-4">
               <Button
-                variant="outline"
-                className="flex-1"
+                className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                 onClick={() => {
                   setShowDirectionLock(false)
                   setSelectedIdea(null)
@@ -1476,8 +1518,7 @@ export default function Home() {
 
             <div className="flex gap-3 pt-4">
               <Button
-                variant="outline"
-                className="flex-1"
+                className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
                 onClick={() => setShowPreFlight(false)}
               >
                 Back to Editing
@@ -1521,6 +1562,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {/* Last Session Header */}
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
               <h3 className="font-semibold text-lg mb-2">{reflectionData.post_analysis.post_title}</h3>
               <div className="flex gap-6 text-sm text-gray-600">
@@ -1530,7 +1572,47 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            {/* Weekly Performance Overview */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border-l-4 border-purple-500">
+              <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                <FaChartLine className="text-purple-600" />
+                This Week's Performance
+              </h4>
+              <div className="grid grid-cols-4 gap-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">3</div>
+                  <div className="text-xs text-gray-600 mt-1">Posts Published</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">12.4K</div>
+                  <div className="text-xs text-gray-600 mt-1">Total Reach</div>
+                  <div className="text-xs text-green-600">+24%</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">8.2%</div>
+                  <div className="text-xs text-gray-600 mt-1">Avg Engagement</div>
+                  <div className="text-xs text-green-600">+3.1%</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-orange-600">156</div>
+                  <div className="text-xs text-gray-600 mt-1">Total Saves</div>
+                  <div className="text-xs text-green-600">+18%</div>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-purple-200">
+                <p className="text-sm text-gray-700">
+                  You're posting more consistently this week. Your educational content is driving 2.3x more saves than personal posts.
+                </p>
+              </div>
+            </div>
+
+            {/* Last Session Performance */}
+            <div>
+              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                <FaClock className="text-gray-600" />
+                Last Session Performance
+              </h4>
+              <div className="grid grid-cols-3 gap-4">
               <Card>
                 <CardContent className="p-4 text-center">
                   <div className="text-3xl font-bold text-blue-600">
@@ -1564,6 +1646,7 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
             </div>
 
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
