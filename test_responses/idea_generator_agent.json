@@ -1,0 +1,163 @@
+{
+  "agent_name": "Idea Generator Agent",
+  "agent_id": "69859ca0ab4bf65a66ad0905",
+  "test_timestamp": "2026-02-06T10:32:00Z",
+  "response": {
+    "ideas_generated": 7,
+    "contrail_applied": {
+      "format": "Carousel",
+      "effort": "Medium",
+      "tone": "Bold",
+      "insights_used": ["Educational tutorials get 3x more saves", "Actionable content drives engagement"]
+    },
+    "idea_cards": [
+      {
+        "id": "idea_001",
+        "title": "5 Productivity Myths Sabotaging Your Day",
+        "hook": "Stop following advice that doesn't work. Here's what actually matters.",
+        "concept": "Debunk common productivity myths with data-backed alternatives and actionable frameworks",
+        "why_it_works": "Contrarian angle creates curiosity, educational format aligns with top-performing content, actionable takeaways drive saves",
+        "format": "Carousel (7 slides)",
+        "effort_level": "Medium",
+        "estimated_time": "2-3 hours",
+        "confidence_score": 0.91,
+        "insight_tags": ["Educational", "High-save potential", "Audience-aligned"],
+        "risk_level": "Moderate",
+        "slide_breakdown": [
+          "Slide 1: Hook - The productivity advice keeping you stuck",
+          "Slide 2: Myth #1 + Why it fails",
+          "Slide 3: What to do instead",
+          "Slide 4-6: Myths #2-4 with solutions",
+          "Slide 7: Action framework"
+        ]
+      },
+      {
+        "id": "idea_002",
+        "title": "The 3-Hour Focus Framework",
+        "hook": "I tried 12 focus methods. Only this one worked.",
+        "concept": "Share a tested framework for deep work sessions with step-by-step implementation guide",
+        "why_it_works": "Personal proof builds trust, framework format is highly saveable, aligns with tutorial preference",
+        "format": "Carousel (6 slides)",
+        "effort_level": "Medium",
+        "estimated_time": "2 hours",
+        "confidence_score": 0.88,
+        "insight_tags": ["Tutorial", "Actionable", "Personal proof"],
+        "risk_level": "Safe",
+        "slide_breakdown": [
+          "Slide 1: Personal story hook",
+          "Slide 2: The framework overview",
+          "Slide 3-5: Step-by-step breakdown",
+          "Slide 6: Quick-start checklist"
+        ]
+      },
+      {
+        "id": "idea_003",
+        "title": "What I Learned Tracking Every Productive Hour for 30 Days",
+        "hook": "I tracked 240 hours of work. The data surprised me.",
+        "concept": "Data-driven insights from personal experiment with unexpected findings and practical applications",
+        "why_it_works": "Data creates credibility, personal experiment is unique, findings offer unexpected value",
+        "format": "Carousel (8 slides)",
+        "effort_level": "Medium-High",
+        "estimated_time": "3 hours",
+        "confidence_score": 0.85,
+        "insight_tags": ["Data-driven", "Personal", "Educational"],
+        "risk_level": "Moderate",
+        "slide_breakdown": [
+          "Slide 1: The experiment setup",
+          "Slide 2-6: 5 surprising findings",
+          "Slide 7: What changed for me",
+          "Slide 8: How you can apply this"
+        ]
+      },
+      {
+        "id": "idea_004",
+        "title": "The 2-Minute Rule Everyone Gets Wrong",
+        "hook": "You're using the 2-minute rule backwards. Here's the fix.",
+        "concept": "Correct a popular productivity concept with clear explanation and improved implementation",
+        "why_it_works": "Corrects misconception (engagement driver), quick win format, actionable implementation",
+        "format": "Carousel (5 slides)",
+        "effort_level": "Low-Medium",
+        "estimated_time": "1.5 hours",
+        "confidence_score": 0.82,
+        "insight_tags": ["Quick win", "Actionable", "Myth-busting"],
+        "risk_level": "Safe",
+        "slide_breakdown": [
+          "Slide 1: The common mistake",
+          "Slide 2: Why it backfires",
+          "Slide 3: The correct approach",
+          "Slide 4: Example scenarios",
+          "Slide 5: Implementation checklist"
+        ]
+      },
+      {
+        "id": "idea_005",
+        "title": "Build a Second Brain in 48 Hours",
+        "hook": "Stop losing great ideas. Here's the simple system I use.",
+        "concept": "Beginner-friendly knowledge management system with templates and step-by-step setup guide",
+        "why_it_works": "Trending topic, time-bound promise reduces overwhelm, templates increase save-worthiness",
+        "format": "Carousel (7 slides)",
+        "effort_level": "Medium",
+        "estimated_time": "2.5 hours",
+        "confidence_score": 0.87,
+        "insight_tags": ["Trending", "Framework", "Beginner-friendly"],
+        "risk_level": "Safe",
+        "slide_breakdown": [
+          "Slide 1: Why you need this",
+          "Slide 2: The 3-part system",
+          "Slide 3-5: Setup each part",
+          "Slide 6: Example workflow",
+          "Slide 7: Free template link"
+        ]
+      },
+      {
+        "id": "idea_006",
+        "title": "Morning Routine vs Evening Routine: Which Actually Matters?",
+        "hook": "I tested both religiously for 90 days. The results were clear.",
+        "concept": "Compare two popular concepts with personal data and help audience choose what fits them",
+        "why_it_works": "Resolves common debate, data-backed conclusions, helps audience make informed choice",
+        "format": "Carousel (6 slides)",
+        "effort_level": "Medium",
+        "estimated_time": "2 hours",
+        "confidence_score": 0.84,
+        "insight_tags": ["Comparison", "Data-driven", "Decision framework"],
+        "risk_level": "Safe",
+        "slide_breakdown": [
+          "Slide 1: The experiment",
+          "Slide 2: Morning routine results",
+          "Slide 3: Evening routine results",
+          "Slide 4: Surprising findings",
+          "Slide 5: Decision framework",
+          "Slide 6: Quick-start guide for each"
+        ]
+      },
+      {
+        "id": "idea_007",
+        "title": "The Energy Audit: Find Your Peak Performance Hours",
+        "hook": "You're scheduling wrong. Here's how to work with your energy, not against it.",
+        "concept": "Teach audience to map their energy patterns and optimize their schedule accordingly",
+        "why_it_works": "Practical self-assessment, personalized outcomes, immediately applicable",
+        "format": "Carousel (7 slides)",
+        "effort_level": "Medium",
+        "estimated_time": "2.5 hours",
+        "confidence_score": 0.86,
+        "insight_tags": ["Self-assessment", "Personalization", "Actionable"],
+        "risk_level": "Safe",
+        "slide_breakdown": [
+          "Slide 1: Why energy matters more than time",
+          "Slide 2: The 7-day energy audit",
+          "Slide 3: How to track",
+          "Slide 4: Interpreting your patterns",
+          "Slide 5: Optimize your schedule",
+          "Slide 6: Common patterns explained",
+          "Slide 7: Tracker template"
+        ]
+      }
+    ],
+    "generation_metadata": {
+      "total_ideas_considered": 15,
+      "ideas_selected": 7,
+      "selection_criteria": "Alignment with contrail, confidence score >0.80, effort level match",
+      "diversity_score": 0.78
+    }
+  }
+}

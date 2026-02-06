@@ -1,0 +1,176 @@
+{
+  "agent_name": "Insight Orchestrator",
+  "agent_id": "69859cc4e5d25ce3f598cc1e",
+  "test_timestamp": "2026-02-06T10:29:00Z",
+  "response": {
+    "workflow_summary": {
+      "analysis_complete": true,
+      "patterns_identified": 3,
+      "ideas_generated": 7,
+      "coordinated_sub_agents": ["Content Analyzer Agent", "Pattern Detector Agent", "Idea Generator Agent"]
+    },
+    "hero_insight": {
+      "statement": "Your educational tutorials are crushing it—they get 3x more saves than personal stories",
+      "confidence": 0.92,
+      "why_it_matters": "Saves are the strongest signal of value on Instagram. Your audience is actively bookmarking your educational content to reference later, which means they see it as genuinely useful. This is exactly the behavior that drives algorithmic reach and builds authority.",
+      "supporting_data": {
+        "educational_saves_avg": 58,
+        "personal_saves_avg": 19,
+        "multiplier": "3.05x"
+      },
+      "expandable_details": {
+        "top_example": {
+          "post_title": "Quick productivity hack",
+          "saves": 67,
+          "why_it_worked": "Clear, actionable framework with immediate application"
+        },
+        "pattern_explanation": "Posts with step-by-step frameworks, numbered lists, or clear takeaways consistently outperform inspirational or personal content",
+        "what_to_do": "Double down on tutorial-style content with actionable frameworks"
+      }
+    },
+    "snapshot_cards": [
+      {
+        "type": "top_post",
+        "title": "Behind the scenes",
+        "thumbnail_url": "/placeholder-post-1.jpg",
+        "metrics": {
+          "likes": 320,
+          "saves": 22,
+          "engagement_rate": "4.8%"
+        },
+        "tag": "High engagement",
+        "insight": "Personal content gets likes but fewer saves—consider adding actionable takeaway"
+      },
+      {
+        "type": "pattern_detected",
+        "title": "Carousel format wins",
+        "description": "Your carousel posts have 2.5x higher save rate than single images",
+        "data_point": "12 carousels, avg 52 saves vs 21 saves for single images",
+        "tag": "Format insight"
+      },
+      {
+        "type": "missed_opportunity",
+        "title": "Underutilizing Reels",
+        "description": "Only 10 Reels posted, but they show strong engagement potential",
+        "potential_impact": "High",
+        "suggestion": "Increase Reel frequency to 2-3 per week",
+        "tag": "Growth opportunity"
+      }
+    ],
+    "content_analysis": {
+      "top_posts": [
+        {
+          "rank": 1,
+          "title": "Behind the scenes",
+          "format": "Single Image",
+          "likes": 320,
+          "saves": 22,
+          "performance_score": 75
+        },
+        {
+          "rank": 2,
+          "title": "Morning routine tips",
+          "format": "Carousel",
+          "likes": 250,
+          "saves": 45,
+          "performance_score": 92
+        },
+        {
+          "rank": 3,
+          "title": "Quick productivity hack",
+          "format": "Reel",
+          "likes": 180,
+          "saves": 67,
+          "performance_score": 89
+        }
+      ],
+      "key_metrics": {
+        "avg_likes": 215,
+        "avg_saves": 38,
+        "save_rate": "17.6%",
+        "engagement_rate": "4.2%"
+      },
+      "performance_summary": "Strong educational content performance with opportunity to optimize format mix"
+    },
+    "strategic_patterns": {
+      "recurring_themes": [
+        {
+          "theme": "Educational tutorials outperform personal stories",
+          "confidence": 0.92,
+          "frequency": "15 out of 30 posts"
+        },
+        {
+          "theme": "Carousel format drives highest engagement",
+          "confidence": 0.87,
+          "frequency": "12 out of 30 posts"
+        },
+        {
+          "theme": "Actionable content gets saved more",
+          "confidence": 0.89,
+          "frequency": "18 out of 30 posts"
+        }
+      ],
+      "opportunities": [
+        {
+          "opportunity": "Underutilizing video content",
+          "impact": "High",
+          "suggestion": "Increase Reel frequency to 2-3 per week"
+        },
+        {
+          "opportunity": "Not posting during peak evening hours",
+          "impact": "Medium",
+          "suggestion": "Schedule more content for 6-8 PM time slot"
+        }
+      ],
+      "recommendations": [
+        "Double down on tutorial-style carousels",
+        "Add actionable takeaways to personal stories",
+        "Experiment with educational Reels"
+      ]
+    },
+    "generated_ideas": {
+      "total_ideas": 7,
+      "idea_cards": [
+        {
+          "id": "idea_001",
+          "title": "5 Productivity Myths Sabotaging Your Day",
+          "hook": "Stop following advice that doesn't work. Here's what actually matters.",
+          "why_it_works": "Contrarian angle creates curiosity, educational format aligns with top-performing content",
+          "effort_level": "Medium",
+          "confidence_score": 0.91
+        },
+        {
+          "id": "idea_002",
+          "title": "The 3-Hour Focus Framework",
+          "hook": "I tried 12 focus methods. Only this one worked.",
+          "why_it_works": "Personal proof builds trust, framework format is highly saveable",
+          "effort_level": "Medium",
+          "confidence_score": 0.88
+        }
+      ]
+    },
+    "action_plan": {
+      "immediate_actions": [
+        "Set a new contrail focused on educational carousels",
+        "Generate ideas using top-performing patterns",
+        "Schedule content for peak engagement hours"
+      ],
+      "long_term_strategy": [
+        "Build content library of tutorial-style frameworks",
+        "Develop signature educational content format",
+        "Track save rate as primary success metric"
+      ],
+      "success_metrics": [
+        "Increase save rate to 25%+",
+        "Maintain engagement rate above 4%",
+        "Publish 2-3 carousel posts per week"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Insight Orchestrator",
+      "timestamp": "2026-02-06T10:29:00Z",
+      "sub_agents_coordinated": 3,
+      "total_processing_time": "4.2 seconds"
+    }
+  }
+}

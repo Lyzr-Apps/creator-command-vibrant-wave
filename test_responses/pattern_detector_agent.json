@@ -1,0 +1,74 @@
+{
+  "agent_name": "Pattern Detector Agent",
+  "agent_id": "69859c885eb49186d63e5d97",
+  "test_timestamp": "2026-02-06T10:31:00Z",
+  "response": {
+    "recurring_themes": [
+      {
+        "theme": "Educational tutorials outperform personal stories",
+        "confidence": 0.92,
+        "evidence": "Educational posts average 3x more saves than personal content",
+        "frequency": "15 out of 30 posts"
+      },
+      {
+        "theme": "Carousel format drives highest engagement",
+        "confidence": 0.87,
+        "evidence": "Carousels have 2.5x higher save rate than single images",
+        "frequency": "12 out of 30 posts"
+      },
+      {
+        "theme": "Actionable content gets saved more",
+        "confidence": 0.89,
+        "evidence": "Posts with clear takeaways have 78% higher save rate",
+        "frequency": "18 out of 30 posts"
+      }
+    ],
+    "missed_opportunities": [
+      {
+        "opportunity": "Underutilizing video content",
+        "impact": "High",
+        "reasoning": "Only 10 Reels posted, but they show strong engagement potential",
+        "suggestion": "Increase Reel frequency to 2-3 per week"
+      },
+      {
+        "opportunity": "Not posting during peak evening hours",
+        "impact": "Medium",
+        "reasoning": "Only 30% of posts published after 5 PM, missing engaged audience",
+        "suggestion": "Schedule more content for 6-8 PM time slot"
+      },
+      {
+        "opportunity": "Minimal use of storytelling in educational content",
+        "impact": "Medium",
+        "reasoning": "Educational posts are fact-heavy but lack personal narrative",
+        "suggestion": "Blend personal experience with tutorials for deeper connection"
+      }
+    ],
+    "content_patterns": {
+      "winning_formula": {
+        "format": "Carousel",
+        "topic": "Educational/Tutorial",
+        "style": "Actionable with clear steps",
+        "length": "5-7 slides",
+        "tone": "Professional but approachable"
+      },
+      "underperforming_pattern": {
+        "format": "Single Image",
+        "topic": "Personal stories without takeaway",
+        "style": "Inspirational quotes",
+        "engagement": "Low saves, moderate likes"
+      }
+    },
+    "strategic_insights": [
+      {
+        "insight": "Your audience craves save-worthy educational content",
+        "action": "Double down on tutorial-style carousels with clear frameworks",
+        "expected_impact": "30-40% increase in save rate"
+      },
+      {
+        "insight": "Personal content needs stronger connection to value",
+        "action": "Frame personal stories around learning moments or actionable insights",
+        "expected_impact": "Improved engagement on personal posts"
+      }
+    ]
+  }
+}

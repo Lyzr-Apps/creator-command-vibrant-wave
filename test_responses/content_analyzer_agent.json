@@ -1,0 +1,79 @@
+{
+  "agent_name": "Content Analyzer Agent",
+  "agent_id": "69859c75b37fff3a03c07bde",
+  "test_timestamp": "2026-02-06T10:30:00Z",
+  "response": {
+    "analysis_summary": {
+      "total_posts_analyzed": 30,
+      "date_range": "Last 30 days",
+      "account_handle": "@creator_studio"
+    },
+    "top_performing_posts": [
+      {
+        "post_id": "post_001",
+        "title": "Morning routine tips",
+        "format": "Carousel",
+        "engagement": {
+          "likes": 250,
+          "saves": 45,
+          "comments": 18,
+          "shares": 12
+        },
+        "performance_score": 92,
+        "tags": ["Educational", "High-save"]
+      },
+      {
+        "post_id": "post_002",
+        "title": "Quick productivity hack",
+        "format": "Reel",
+        "engagement": {
+          "likes": 180,
+          "saves": 67,
+          "comments": 24,
+          "shares": 15
+        },
+        "performance_score": 89,
+        "tags": ["Tutorial", "Actionable"]
+      },
+      {
+        "post_id": "post_003",
+        "title": "Behind the scenes",
+        "format": "Single Image",
+        "engagement": {
+          "likes": 320,
+          "saves": 22,
+          "comments": 45,
+          "shares": 8
+        },
+        "performance_score": 75,
+        "tags": ["Personal", "High-engagement"]
+      }
+    ],
+    "engagement_metrics": {
+      "average_likes": 215,
+      "average_saves": 38,
+      "average_comments": 22,
+      "save_rate": "17.6%",
+      "engagement_rate": "4.2%"
+    },
+    "content_breakdown": {
+      "by_format": {
+        "Carousel": 12,
+        "Reel": 10,
+        "Single Image": 8
+      },
+      "by_topic": {
+        "Educational": 15,
+        "Personal": 8,
+        "Promotional": 4,
+        "Inspirational": 3
+      }
+    },
+    "performance_patterns": {
+      "best_performing_format": "Carousel",
+      "best_performing_topic": "Educational tutorials",
+      "peak_posting_times": ["9:00 AM", "6:00 PM"],
+      "audience_preference": "Actionable, save-worthy content"
+    }
+  }
+}

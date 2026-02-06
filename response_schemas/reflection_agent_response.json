@@ -1,0 +1,120 @@
+{
+  "agent_name": "Reflection Agent",
+  "agent_id": "69859ce5e5d25ce3f598cc1f",
+  "agent_purpose": "post_performance_reflection",
+  "description": "Analyzes post-publish performance data to extract one key insight and one actionable suggestion for continuous improvement",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "performance_overview": {
+        "post_id": "string",
+        "actual_engagement": {
+          "likes": "number",
+          "comments": "number",
+          "shares": "number",
+          "reach": "number"
+        },
+        "expected_engagement": {
+          "likes": "number",
+          "comments": "number",
+          "shares": "number",
+          "reach": "number"
+        },
+        "performance_rating": "string"
+      },
+      "key_insight": {
+        "insight": "string",
+        "supporting_data": "string",
+        "significance": "string"
+      },
+      "actionable_suggestion": {
+        "suggestion": "string",
+        "implementation": "string",
+        "expected_impact": "string"
+      },
+      "learning_summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "post_analyzed": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "performance_overview": {
+        "post_id": "post_12345",
+        "actual_engagement": {
+          "likes": 120,
+          "comments": 35,
+          "shares": 20,
+          "reach": 2000
+        },
+        "expected_engagement": {
+          "likes": 100,
+          "comments": 25,
+          "shares": 25,
+          "reach": 1800
+        },
+        "performance_rating": "Met"
+      },
+      "key_insight": {
+        "insight": "The post had significantly higher comments than expected, indicating strong audience interest in the topic.",
+        "supporting_data": "Actual comments were 35 vs. expected 25 (40% increase).",
+        "significance": "Higher comment rates suggest the content encourages conversation, an indicator of deeper engagement than passive likes or reach."
+      },
+      "actionable_suggestion": {
+        "suggestion": "Prompt explicit questions or calls-to-action to further boost comments.",
+        "implementation": "Add a direct question at the end of future posts related to trending topics to invite opinions.",
+        "expected_impact": "This should increase comment rates, foster community, and improve overall post engagement."
+      },
+      "learning_summary": "Comment-driven engagement exceeded expectations; leveraging calls-to-action in future posts can amplify this positive trend."
+    },
+    "metadata": {
+      "agent_name": "Reflection Agent",
+      "timestamp": "2024-06-08T12:00:00Z",
+      "post_analyzed": "Sample Example Post"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:49:03.001799",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "performance_overview": {
+        "post_id": "post_12345",
+        "actual_engagement": {
+          "likes": 120,
+          "comments": 35,
+          "shares": 20,
+          "reach": 2000
+        },
+        "expected_engagement": {
+          "likes": 100,
+          "comments": 25,
+          "shares": 25,
+          "reach": 1800
+        },
+        "performance_rating": "Met"
+      },
+      "key_insight": {
+        "insight": "The post had significantly higher comments than expected, indicating strong audience interest in the topic.",
+        "supporting_data": "Actual comments were 35 vs. expected 25 (40% increase).",
+        "significance": "Higher comment rates suggest the content encourages conversation, an indicator of deeper engagement than passive likes or reach."
+      },
+      "actionable_suggestion": {
+        "suggestion": "Prompt explicit questions or calls-to-action to further boost comments.",
+        "implementation": "Add a direct question at the end of future posts related to trending topics to invite opinions.",
+        "expected_impact": "This should increase comment rates, foster community, and improve overall post engagement."
+      },
+      "learning_summary": "Comment-driven engagement exceeded expectations; leveraging calls-to-action in future posts can amplify this positive trend."
+    },
+    "metadata": {
+      "agent_name": "Reflection Agent",
+      "timestamp": "2024-06-08T12:00:00Z",
+      "post_analyzed": "Sample Example Post"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "workflow_name": "CreatorPilot Instagram Assistant",
+  "version": "1.0.0",
+  "created_at": "2026-02-06",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Input",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "insight_orchestrator",
+      "type": "Agent",
+      "label": "Insight Orchestrator",
+      "nodeCategory": "agent",
+      "agent_id": "69859cc4e5d25ce3f598cc1e",
+      "agent_type": "Manager",
+      "config": {
+        "name": "Insight Orchestrator",
+        "description": "Coordinates content analysis and idea generation workflows",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.3,
+        "top_p": 1,
+        "managed_agents": [
+          "69859c75b37fff3a03c07bde",
+          "69859c885eb49186d63e5d97",
+          "69859ca0ab4bf65a66ad0905"
+        ]
+      }
+    },
+    {
+      "id": "reflection_agent",
+      "type": "Agent",
+      "label": "Reflection Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69859ce5e5d25ce3f598cc1f",
+      "agent_type": "Independent",
+      "config": {
+        "name": "Reflection Agent",
+        "description": "Analyzes post-publish performance and generates learning summary",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.4,
+        "top_p": 1
+      }
+    },
+    {
+      "id": "content_analyzer",
+      "type": "Agent",
+      "label": "Content Analyzer Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69859c75b37fff3a03c07bde",
+      "agent_type": "Sub-Agent",
+      "config": {
+        "name": "Content Analyzer Agent",
+        "description": "Analyzes last 30 Instagram posts to extract performance patterns",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.2,
+        "top_p": 1
+      }
+    },
+    {
+      "id": "pattern_detector",
+      "type": "Agent",
+      "label": "Pattern Detector Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69859c885eb49186d63e5d97",
+      "agent_type": "Sub-Agent",
+      "config": {
+        "name": "Pattern Detector Agent",
+        "description": "Identifies recurring themes, missed opportunities, and content patterns",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.3,
+        "top_p": 1
+      }
+    },
+    {
+      "id": "idea_generator",
+      "type": "Agent",
+      "label": "Idea Generator Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69859ca0ab4bf65a66ad0905",
+      "agent_type": "Sub-Agent",
+      "config": {
+        "name": "Idea Generator Agent",
+        "description": "Creates 6-8 idea cards based on insights and user preferences",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.7,
+        "top_p": 0.95
+      }
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Final Output",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "insight_orchestrator"
+    },
+    {
+      "source": "input_node",
+      "target": "reflection_agent"
+    },
+    {
+      "source": "insight_orchestrator",
+      "target": "content_analyzer"
+    },
+    {
+      "source": "insight_orchestrator",
+      "target": "pattern_detector"
+    },
+    {
+      "source": "insight_orchestrator",
+      "target": "idea_generator"
+    },
+    {
+      "source": "insight_orchestrator",
+      "target": "output_node"
+    },
+    {
+      "source": "reflection_agent",
+      "target": "output_node"
+    }
+  ],
+  "metadata": {
+    "total_nodes": 7,
+    "total_edges": 7,
+    "total_agents": 5,
+    "manager_agents": 1,
+    "sub_agents": 3,
+    "independent_agents": 1
+  }
+}

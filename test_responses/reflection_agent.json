@@ -1,0 +1,78 @@
+{
+  "agent_name": "Reflection Agent",
+  "agent_id": "69859ce5e5d25ce3f598cc1f",
+  "test_timestamp": "2026-02-06T10:33:00Z",
+  "response": {
+    "post_analysis": {
+      "post_title": "Time management tips",
+      "format": "Carousel",
+      "published_date": "2026-02-04T09:00:00Z",
+      "time_elapsed": "48 hours",
+      "original_intent": "Teach"
+    },
+    "performance_data": {
+      "engagement": {
+        "likes": 450,
+        "saves": 89,
+        "comments": 34,
+        "shares": 18,
+        "reach": 5200,
+        "impressions": 7800
+      },
+      "save_rate": "19.8%",
+      "engagement_rate": "11.4%",
+      "comparison_to_average": {
+        "likes": "+109%",
+        "saves": "+134%",
+        "engagement_rate": "+171%"
+      }
+    },
+    "outcome_summary": {
+      "performance_level": "Excellent",
+      "intent_match": "Strong alignment",
+      "standout_metric": "Save rate",
+      "summary": "This post significantly outperformed your average content, with saves being the standout metric at 2.3x your typical rate. The teaching intent was clearly received by the audience."
+    },
+    "learning_statement": {
+      "primary_insight": "Educational carousels with clear, numbered frameworks get saved and shared at much higher rates than other content types",
+      "supporting_evidence": [
+        "Save rate 134% above average indicates strong perceived value",
+        "High share count (18) suggests audience finds it worth recommending",
+        "Comments show people asking follow-up questions, indicating genuine engagement"
+      ],
+      "confidence": 0.94
+    },
+    "suggestion": {
+      "next_action": "Create a follow-up carousel addressing the most common questions from comments, maintaining the numbered framework approach",
+      "rationale": "Audience engagement shows demand for deeper exploration of this topic, and the format clearly resonates",
+      "suggested_title": "Time Management Q&A: Your Top 5 Questions Answered",
+      "expected_impact": "Similar or better performance, builds on existing momentum"
+    },
+    "reflection_summary": {
+      "what_worked": [
+        "Clear, numbered framework structure",
+        "Practical, immediately applicable tips",
+        "Visual carousel format with good pacing"
+      ],
+      "what_to_repeat": [
+        "Educational content with actionable frameworks",
+        "Carousel format for step-by-step content",
+        "Publishing during morning hours (9 AM)"
+      ],
+      "what_to_explore": [
+        "Video format for similar educational content",
+        "Behind-the-scenes of implementing these tips",
+        "Template or downloadable resource to increase saves further"
+      ]
+    },
+    "contrail_suggestion": {
+      "pre_filled_insights": [
+        "Educational frameworks drive high save rates",
+        "Numbered, structured content outperforms open-ended posts"
+      ],
+      "suggested_format": "Carousel",
+      "suggested_effort": "Medium",
+      "suggested_tone": "Educational but approachable"
+    }
+  }
+}

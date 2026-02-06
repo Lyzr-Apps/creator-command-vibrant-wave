@@ -1,0 +1,82 @@
+{
+  "workflow_name": "CreatorPilot Instagram Assistant",
+  "created_at": "2026-02-06",
+  "agents": {
+    "manager": {
+      "insight_orchestrator": {
+        "agent_id": "69859cc4e5d25ce3f598cc1e",
+        "name": "Insight Orchestrator",
+        "type": "Manager",
+        "description": "Coordinates content analysis and idea generation workflows",
+        "sub_agents": [
+          "69859c75b37fff3a03c07bde",
+          "69859c885eb49186d63e5d97",
+          "69859ca0ab4bf65a66ad0905"
+        ],
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.3,
+        "top_p": 1
+      }
+    },
+    "sub_agents": {
+      "content_analyzer": {
+        "agent_id": "69859c75b37fff3a03c07bde",
+        "name": "Content Analyzer Agent",
+        "type": "Sub-Agent",
+        "description": "Analyzes last 30 Instagram posts to extract performance patterns",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.2,
+        "top_p": 1
+      },
+      "pattern_detector": {
+        "agent_id": "69859c885eb49186d63e5d97",
+        "name": "Pattern Detector Agent",
+        "type": "Sub-Agent",
+        "description": "Identifies recurring themes, missed opportunities, and content patterns",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.3,
+        "top_p": 1
+      },
+      "idea_generator": {
+        "agent_id": "69859ca0ab4bf65a66ad0905",
+        "name": "Idea Generator Agent",
+        "type": "Sub-Agent",
+        "description": "Creates 6-8 idea cards based on insights and user preferences",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.7,
+        "top_p": 0.95
+      }
+    },
+    "independent": {
+      "reflection_agent": {
+        "agent_id": "69859ce5e5d25ce3f598cc1f",
+        "name": "Reflection Agent",
+        "type": "Independent",
+        "description": "Analyzes post-publish performance and generates learning summary",
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "temperature": 0.4,
+        "top_p": 1
+      }
+    }
+  },
+  "total_agents": 5,
+  "agent_ids": [
+    "69859cc4e5d25ce3f598cc1e",
+    "69859c75b37fff3a03c07bde",
+    "69859c885eb49186d63e5d97",
+    "69859ca0ab4bf65a66ad0905",
+    "69859ce5e5d25ce3f598cc1f"
+  ],
+  "response_schemas": [
+    "response_schemas/insight_orchestrator_response.json",
+    "response_schemas/content_analyzer_agent_response.json",
+    "response_schemas/pattern_detector_agent_response.json",
+    "response_schemas/idea_generator_agent_response.json",
+    "response_schemas/reflection_agent_response.json"
+  ]
+}

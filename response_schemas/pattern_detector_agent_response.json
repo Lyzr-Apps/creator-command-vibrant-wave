@@ -1,0 +1,174 @@
+{
+  "agent_name": "Pattern Detector Agent",
+  "agent_id": "69859c885eb49186d63e5d97",
+  "agent_purpose": "pattern_detection",
+  "description": "Identifies content patterns, recurring themes, and missed opportunities from Instagram content analysis data",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "recurring_themes": [
+        {
+          "theme": "string",
+          "frequency": "number",
+          "performance": "string"
+        }
+      ],
+      "missed_opportunities": [
+        {
+          "opportunity": "string",
+          "rationale": "string",
+          "potential_impact": "string"
+        }
+      ],
+      "content_patterns": {
+        "format_preferences": [
+          "string"
+        ],
+        "timing_patterns": "string",
+        "topic_clusters": [
+          "string"
+        ]
+      },
+      "audience_insights": [
+        "string"
+      ],
+      "strategic_recommendations": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "patterns_identified": "number"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "recurring_themes": [
+        {
+          "theme": "Behind-the-scenes content",
+          "frequency": 8,
+          "performance": "Consistently drives high engagement, especially comments and shares"
+        },
+        {
+          "theme": "User-generated content showcases",
+          "frequency": 5,
+          "performance": "Obtains above-average reach and saves"
+        },
+        {
+          "theme": "Tips and actionable advice",
+          "frequency": 10,
+          "performance": "Highly saved and shared, strong follower growth correlation"
+        }
+      ],
+      "missed_opportunities": [
+        {
+          "opportunity": "Leverage Instagram Reels for trending topics",
+          "rationale": "Reels are underutilized, while video content outperforms static posts platform-wide",
+          "potential_impact": "Increased discoverability and engagement"
+        },
+        {
+          "opportunity": "Seasonal/holiday-themed campaigns",
+          "rationale": "Noticeable absence during key calendar events; competitors see engagement spikes during these periods",
+          "potential_impact": "Capitalize on trending conversations and increase brand relevance"
+        }
+      ],
+      "content_patterns": {
+        "format_preferences": [
+          "Carousel posts",
+          "Short-form video (Reels)",
+          "Instagram Stories"
+        ],
+        "timing_patterns": "Wednesdays and Fridays between 11am-2pm local time consistently yield better engagement rates.",
+        "topic_clusters": [
+          "Community stories",
+          "Educational how-tos",
+          "Product highlights"
+        ]
+      },
+      "audience_insights": [
+        "Audience engages most with authentic, personable content",
+        "Strong interest in educational material and actionable tips",
+        "Content that invites participation (polls, questions) outperforms passive content"
+      ],
+      "strategic_recommendations": [
+        "Increase the volume of Reels tied to trending hashtags and challenges.",
+        "Build a consistent content calendar around major holidays and seasonal moments.",
+        "Feature more user-generated content, encouraging tagging and community participation.",
+        "Amplify storytelling in captions to boost authenticity and follower connection."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Pattern Detector Agent",
+      "timestamp": "2024-06-13T14:30:00Z",
+      "patterns_identified": 9
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:47:33.338146",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "recurring_themes": [
+        {
+          "theme": "Behind-the-scenes content",
+          "frequency": 8,
+          "performance": "Consistently drives high engagement, especially comments and shares"
+        },
+        {
+          "theme": "User-generated content showcases",
+          "frequency": 5,
+          "performance": "Obtains above-average reach and saves"
+        },
+        {
+          "theme": "Tips and actionable advice",
+          "frequency": 10,
+          "performance": "Highly saved and shared, strong follower growth correlation"
+        }
+      ],
+      "missed_opportunities": [
+        {
+          "opportunity": "Leverage Instagram Reels for trending topics",
+          "rationale": "Reels are underutilized, while video content outperforms static posts platform-wide",
+          "potential_impact": "Increased discoverability and engagement"
+        },
+        {
+          "opportunity": "Seasonal/holiday-themed campaigns",
+          "rationale": "Noticeable absence during key calendar events; competitors see engagement spikes during these periods",
+          "potential_impact": "Capitalize on trending conversations and increase brand relevance"
+        }
+      ],
+      "content_patterns": {
+        "format_preferences": [
+          "Carousel posts",
+          "Short-form video (Reels)",
+          "Instagram Stories"
+        ],
+        "timing_patterns": "Wednesdays and Fridays between 11am-2pm local time consistently yield better engagement rates.",
+        "topic_clusters": [
+          "Community stories",
+          "Educational how-tos",
+          "Product highlights"
+        ]
+      },
+      "audience_insights": [
+        "Audience engages most with authentic, personable content",
+        "Strong interest in educational material and actionable tips",
+        "Content that invites participation (polls, questions) outperforms passive content"
+      ],
+      "strategic_recommendations": [
+        "Increase the volume of Reels tied to trending hashtags and challenges.",
+        "Build a consistent content calendar around major holidays and seasonal moments.",
+        "Feature more user-generated content, encouraging tagging and community participation.",
+        "Amplify storytelling in captions to boost authenticity and follower connection."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Pattern Detector Agent",
+      "timestamp": "2024-06-13T14:30:00Z",
+      "patterns_identified": 9
+    }
+  }
+}

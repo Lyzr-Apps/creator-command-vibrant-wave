@@ -1,0 +1,263 @@
+{
+  "agent_name": "Idea Generator Agent",
+  "agent_id": "69859ca0ab4bf65a66ad0905",
+  "agent_purpose": "idea_generation",
+  "description": "Generates 6-8 creative content idea cards based on insights, patterns, and user preferences",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "idea_cards": [
+        {
+          "id": "string",
+          "title": "string",
+          "description": "string",
+          "format": "string",
+          "hook": "string",
+          "key_elements": [
+            "string"
+          ],
+          "expected_engagement": "string",
+          "rationale": "string"
+        }
+      ],
+      "total_ideas": "number",
+      "strategy_summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "ideas_generated": "number"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "idea_cards": [
+        {
+          "id": "IGC_001",
+          "title": "Behind-the-Scenes Day",
+          "description": "Show your audience a day in the life at your workspace\u2014capture candid moments, team interactions, and workflow snippets.",
+          "format": "Reel",
+          "hook": "Ever wondered what happens behind our brand? Let\u2019s take you inside!",
+          "key_elements": [
+            "Candid video clips",
+            "Team members",
+            "Workspace aesthetics",
+            "Quick edits"
+          ],
+          "expected_engagement": "High\u2014users love authenticity and exclusive access.",
+          "rationale": "BTS content consistently performs well, building trust and deeper audience connection."
+        },
+        {
+          "id": "IGC_002",
+          "title": "Trending Challenge Remix",
+          "description": "Participate in a current Instagram challenge relevant to your niche and add your unique twist.",
+          "format": "Reel",
+          "hook": "Watch how we put our own spin on the latest Instagram trend!",
+          "key_elements": [
+            "Hashtags",
+            "On-trend music",
+            "Brand personality",
+            "Clear call-to-action"
+          ],
+          "expected_engagement": "Very High\u2014capitalizes on trending content and discoverability.",
+          "rationale": "Participating in trends increases visibility and taps into broader conversations."
+        },
+        {
+          "id": "IGC_003",
+          "title": "Customer Testimonials Carousel",
+          "description": "Showcase real customer stories and testimonials with impactful quotes and images.",
+          "format": "Carousel",
+          "hook": "See how real people are enjoying our product/service!",
+          "key_elements": [
+            "Authentic photos",
+            "Layered text quotes",
+            "Brand colors"
+          ],
+          "expected_engagement": "Moderate-High\u2014social proof drives shares and saves.",
+          "rationale": "Testimonial content builds credibility and trust, proven to move followers to action."
+        },
+        {
+          "id": "IGC_004",
+          "title": "Quick Tips You Need",
+          "description": "Share 3 quick, actionable tips related to your industry that followers can use instantly.",
+          "format": "Carousel",
+          "hook": "Save these 3 quick tips for instant results!",
+          "key_elements": [
+            "Numbered panels",
+            "Concise copy",
+            "Eye-catching visuals"
+          ],
+          "expected_engagement": "High\u2014\u2018saveable\u2019 value-driven content.",
+          "rationale": "Short tips are highly accessible, widely shared and often saved for future reference."
+        },
+        {
+          "id": "IGC_005",
+          "title": "Weekly Poll: You Decide!",
+          "description": "Run a weekly interactive poll on your Stories to collect feedback or preferences on upcoming launches.",
+          "format": "Story",
+          "hook": "Help us choose\u2014your vote matters!",
+          "key_elements": [
+            "Poll stickers",
+            "Branded visuals",
+            "Immediate interactions"
+          ],
+          "expected_engagement": "High\u2014direct audience participation.",
+          "rationale": "Engaging users through polls fosters direct connection and provides valuable insights."
+        },
+        {
+          "id": "IGC_006",
+          "title": "Flashback Friday",
+          "description": "Share a nostalgic moment or milestone from your brand\u2019s journey.",
+          "format": "Single Image",
+          "hook": "Throwback to where it all began!",
+          "key_elements": [
+            "Vintage photos",
+            "Personal caption",
+            "Relevant hashtags"
+          ],
+          "expected_engagement": "Moderate\u2014invites story shares and comments.",
+          "rationale": "Nostalgic content humanizes your brand and encourages users to share their experiences."
+        },
+        {
+          "id": "IGC_007",
+          "title": "Product Hack Reel",
+          "description": "Demonstrate a creative or lesser-known use of your product in a quick, visually engaging Reel.",
+          "format": "Reel",
+          "hook": "Bet you didn\u2019t know you could use our product like THIS!",
+          "key_elements": [
+            "Demonstration",
+            "Fast cuts",
+            "Before/after results"
+          ],
+          "expected_engagement": "High\u2014users love discovering hacks and share them widely.",
+          "rationale": "Hack content consistently trends for its practicality and viral potential."
+        }
+      ],
+      "total_ideas": 7,
+      "strategy_summary": "This mix of content ideas targets high engagement through authenticity, trends, interactivity, and user value. The balance of Reels, Carousels, Stories, and Static Images ensures diverse reach, leveraging proven formats and emerging performance trends for optimal Instagram growth."
+    },
+    "metadata": {
+      "agent_name": "Idea Generator Agent",
+      "timestamp": "2024-06-11T14:32:00Z",
+      "ideas_generated": 7
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:48:05.678331",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "idea_cards": [
+        {
+          "id": "IGC_001",
+          "title": "Behind-the-Scenes Day",
+          "description": "Show your audience a day in the life at your workspace\u2014capture candid moments, team interactions, and workflow snippets.",
+          "format": "Reel",
+          "hook": "Ever wondered what happens behind our brand? Let\u2019s take you inside!",
+          "key_elements": [
+            "Candid video clips",
+            "Team members",
+            "Workspace aesthetics",
+            "Quick edits"
+          ],
+          "expected_engagement": "High\u2014users love authenticity and exclusive access.",
+          "rationale": "BTS content consistently performs well, building trust and deeper audience connection."
+        },
+        {
+          "id": "IGC_002",
+          "title": "Trending Challenge Remix",
+          "description": "Participate in a current Instagram challenge relevant to your niche and add your unique twist.",
+          "format": "Reel",
+          "hook": "Watch how we put our own spin on the latest Instagram trend!",
+          "key_elements": [
+            "Hashtags",
+            "On-trend music",
+            "Brand personality",
+            "Clear call-to-action"
+          ],
+          "expected_engagement": "Very High\u2014capitalizes on trending content and discoverability.",
+          "rationale": "Participating in trends increases visibility and taps into broader conversations."
+        },
+        {
+          "id": "IGC_003",
+          "title": "Customer Testimonials Carousel",
+          "description": "Showcase real customer stories and testimonials with impactful quotes and images.",
+          "format": "Carousel",
+          "hook": "See how real people are enjoying our product/service!",
+          "key_elements": [
+            "Authentic photos",
+            "Layered text quotes",
+            "Brand colors"
+          ],
+          "expected_engagement": "Moderate-High\u2014social proof drives shares and saves.",
+          "rationale": "Testimonial content builds credibility and trust, proven to move followers to action."
+        },
+        {
+          "id": "IGC_004",
+          "title": "Quick Tips You Need",
+          "description": "Share 3 quick, actionable tips related to your industry that followers can use instantly.",
+          "format": "Carousel",
+          "hook": "Save these 3 quick tips for instant results!",
+          "key_elements": [
+            "Numbered panels",
+            "Concise copy",
+            "Eye-catching visuals"
+          ],
+          "expected_engagement": "High\u2014\u2018saveable\u2019 value-driven content.",
+          "rationale": "Short tips are highly accessible, widely shared and often saved for future reference."
+        },
+        {
+          "id": "IGC_005",
+          "title": "Weekly Poll: You Decide!",
+          "description": "Run a weekly interactive poll on your Stories to collect feedback or preferences on upcoming launches.",
+          "format": "Story",
+          "hook": "Help us choose\u2014your vote matters!",
+          "key_elements": [
+            "Poll stickers",
+            "Branded visuals",
+            "Immediate interactions"
+          ],
+          "expected_engagement": "High\u2014direct audience participation.",
+          "rationale": "Engaging users through polls fosters direct connection and provides valuable insights."
+        },
+        {
+          "id": "IGC_006",
+          "title": "Flashback Friday",
+          "description": "Share a nostalgic moment or milestone from your brand\u2019s journey.",
+          "format": "Single Image",
+          "hook": "Throwback to where it all began!",
+          "key_elements": [
+            "Vintage photos",
+            "Personal caption",
+            "Relevant hashtags"
+          ],
+          "expected_engagement": "Moderate\u2014invites story shares and comments.",
+          "rationale": "Nostalgic content humanizes your brand and encourages users to share their experiences."
+        },
+        {
+          "id": "IGC_007",
+          "title": "Product Hack Reel",
+          "description": "Demonstrate a creative or lesser-known use of your product in a quick, visually engaging Reel.",
+          "format": "Reel",
+          "hook": "Bet you didn\u2019t know you could use our product like THIS!",
+          "key_elements": [
+            "Demonstration",
+            "Fast cuts",
+            "Before/after results"
+          ],
+          "expected_engagement": "High\u2014users love discovering hacks and share them widely.",
+          "rationale": "Hack content consistently trends for its practicality and viral potential."
+        }
+      ],
+      "total_ideas": 7,
+      "strategy_summary": "This mix of content ideas targets high engagement through authenticity, trends, interactivity, and user value. The balance of Reels, Carousels, Stories, and Static Images ensures diverse reach, leveraging proven formats and emerging performance trends for optimal Instagram growth."
+    },
+    "metadata": {
+      "agent_name": "Idea Generator Agent",
+      "timestamp": "2024-06-11T14:32:00Z",
+      "ideas_generated": 7
+    }
+  }
+}

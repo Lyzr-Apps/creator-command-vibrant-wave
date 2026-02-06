@@ -1,0 +1,126 @@
+{
+  "agent_name": "Content Analyzer Agent",
+  "agent_id": "69859c75b37fff3a03c07bde",
+  "agent_purpose": "content_analysis",
+  "description": "Analyzes Instagram post performance data to extract patterns, trends, and top-performing content insights",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "top_posts": [
+        {
+          "post_id": "string",
+          "engagement_rate": "number",
+          "insights": "string"
+        }
+      ],
+      "performance_patterns": [
+        "string"
+      ],
+      "engagement_trends": {
+        "average_likes": "number",
+        "average_comments": "number",
+        "average_saves": "number"
+      },
+      "content_themes": [
+        "string"
+      ],
+      "posting_insights": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "posts_analyzed": "number"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "top_posts": [
+        {
+          "post_id": "12345",
+          "engagement_rate": 8.2,
+          "insights": "This post featured a carousel with behind-the-scenes content, which generated high saves and shares."
+        },
+        {
+          "post_id": "12339",
+          "engagement_rate": 7.8,
+          "insights": "A short educational Reel provided quick tips; its engaging format led to increased comments and reshares."
+        },
+        {
+          "post_id": "12328",
+          "engagement_rate": 7.6,
+          "insights": "A user-generated photo contest post attracted above-average likes and strong community participation."
+        }
+      ],
+      "performance_patterns": [
+        "Carousel posts and Reels consistently outperform static images in engagement rate.",
+        "Educational content and tips drive more saves and shares.",
+        "Posts that encourage follower participation (e.g., contests, questions) see higher comment volumes."
+      ],
+      "engagement_trends": {
+        "average_likes": 820,
+        "average_comments": 67,
+        "average_saves": 39
+      },
+      "content_themes": [
+        "Behind-the-scenes insights",
+        "Educational tips",
+        "Community engagement (contests, Q&As)",
+        "User-generated content"
+      ],
+      "posting_insights": "The account posts an average of 3-4 times per week, with better engagement observed on weekday afternoons. Video formats (Reels/IGTV) are increasingly effective. Content mix is balanced but adding more Reels and interactive posts could further boost engagement."
+    },
+    "metadata": {
+      "agent_name": "Content Analyzer Agent",
+      "timestamp": "2024-06-10T14:34:00Z",
+      "posts_analyzed": 30
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:47:11.026243",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "top_posts": [
+        {
+          "post_id": "12345",
+          "engagement_rate": 8.2,
+          "insights": "This post featured a carousel with behind-the-scenes content, which generated high saves and shares."
+        },
+        {
+          "post_id": "12339",
+          "engagement_rate": 7.8,
+          "insights": "A short educational Reel provided quick tips; its engaging format led to increased comments and reshares."
+        },
+        {
+          "post_id": "12328",
+          "engagement_rate": 7.6,
+          "insights": "A user-generated photo contest post attracted above-average likes and strong community participation."
+        }
+      ],
+      "performance_patterns": [
+        "Carousel posts and Reels consistently outperform static images in engagement rate.",
+        "Educational content and tips drive more saves and shares.",
+        "Posts that encourage follower participation (e.g., contests, questions) see higher comment volumes."
+      ],
+      "engagement_trends": {
+        "average_likes": 820,
+        "average_comments": 67,
+        "average_saves": 39
+      },
+      "content_themes": [
+        "Behind-the-scenes insights",
+        "Educational tips",
+        "Community engagement (contests, Q&As)",
+        "User-generated content"
+      ],
+      "posting_insights": "The account posts an average of 3-4 times per week, with better engagement observed on weekday afternoons. Video formats (Reels/IGTV) are increasingly effective. Content mix is balanced but adding more Reels and interactive posts could further boost engagement."
+    },
+    "metadata": {
+      "agent_name": "Content Analyzer Agent",
+      "timestamp": "2024-06-10T14:34:00Z",
+      "posts_analyzed": 30
+    }
+  }
+}
