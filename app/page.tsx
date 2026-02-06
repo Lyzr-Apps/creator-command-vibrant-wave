@@ -176,7 +176,7 @@ export default function Home() {
   ]
 
   // Navigation & Screen State
-  const [currentScreen, setCurrentScreen] = useState<'onboarding' | 'studio' | 'content' | 'explore' | 'drafts' | 'insights'>('onboarding')
+  const [currentScreen, setCurrentScreen] = useState<'onboarding' | 'studio' | 'content' | 'drafts'>('onboarding')
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [onboardingStep, setOnboardingStep] = useState(0)
 
@@ -243,6 +243,9 @@ export default function Home() {
   // Reflection State
   const [showReflection, setShowReflection] = useState(false)
   const [reflectionData, setReflectionData] = useState<ReflectionResponse | null>(null)
+
+  // Health/Stats Popup State
+  const [showHealthPopup, setShowHealthPopup] = useState(false)
 
   // Agent IDs
   const AGENT_IDS = {
@@ -326,7 +329,7 @@ export default function Home() {
         format: contentFormat,
         effort: contentEffort > 66 ? 'High' : contentEffort > 33 ? 'Medium' : 'Low',
         tone: contentTone > 66 ? 'Bold' : contentTone > 33 ? 'Professional' : 'Soft',
-        insights: selectedInsights.map(i => i.theme)
+        insights: selectedInsights.map(i => i.split('\n')[0])
       }
 
       const result = await callAIAgent(
@@ -336,7 +339,16 @@ export default function Home() {
 
       if (result.success && result.response?.result?.idea_cards) {
         setIdeas(result.response.result.idea_cards)
-        setCurrentScreen('explore')
+        // Navigate to drafts and pre-populate with first idea
+        if (result.response.result.idea_cards.length > 0) {
+          const firstIdea = result.response.result.idea_cards[0]
+          setCurrentDraft({
+            hook: firstIdea.hook,
+            body: firstIdea.concept || '',
+            cta: ''
+          })
+        }
+        setCurrentScreen('drafts')
       }
     } catch (error) {
       console.error('Error generating ideas:', error)
@@ -1686,6 +1698,112 @@ export default function Home() {
     )
   }
 
+  const renderHealthStatsPopup = () => {
+    if (!showHealthPopup) return null
+
+    return (
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <Card className="w-full max-w-lg bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#9333EA] to-[#7E22CE] rounded-full flex items-center justify-center">
+                  <FaHeart className="text-white text-xl" />
+                </div>
+                <CardTitle className="text-2xl">Take a Break!</CardTitle>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowHealthPopup(false)}
+              >
+                <FaTimes />
+              </Button>
+            </div>
+            <CardDescription className="text-base mt-2">
+              Your creative energy matters
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Health Reminder */}
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                <FaClock className="text-purple-600" />
+                You've been creating for a while
+              </h4>
+              <p className="text-sm text-gray-700 mb-4">
+                Great content comes from a healthy creator. Consider taking a short break to:
+              </p>
+              <div className="space-y-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <FaCheckCircle className="text-green-500" />
+                  <span>Stretch and move your body</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCheckCircle className="text-green-500" />
+                  <span>Hydrate and have a snack</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCheckCircle className="text-green-500" />
+                  <span>Step away from the screen</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCheckCircle className="text-green-500" />
+                  <span>Take a few deep breaths</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                <FaChartBar className="text-blue-600" />
+                Your Progress Today
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600">2</div>
+                  <div className="text-xs text-gray-600 mt-1">Ideas Explored</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600">1</div>
+                  <div className="text-xs text-gray-600 mt-1">Draft Started</div>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-700 text-center">
+                  You're making steady progress. Keep it sustainable!
+                </p>
+              </div>
+            </div>
+
+            {/* Motivational Note */}
+            <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-4 border-l-4 border-purple-500">
+              <p className="text-sm text-gray-800 italic">
+                "The best content creators know when to rest. Your next great idea might come when you step away."
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <Button
+                className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE] text-white"
+                onClick={() => setShowHealthPopup(false)}
+              >
+                I'll Take a Break
+              </Button>
+              <Button
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800"
+                onClick={() => setShowHealthPopup(false)}
+              >
+                Continue Creating
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
   // ============================================================================
   // LAYOUT
   // ============================================================================
@@ -1719,9 +1837,7 @@ export default function Home() {
           {[
             { id: 'studio', label: 'Studio', icon: FaChartBar },
             { id: 'content', label: 'Content', icon: FaRocket },
-            { id: 'explore', label: 'Explore', icon: FaLightbulb },
-            { id: 'drafts', label: 'Drafts', icon: FaPencilAlt },
-            { id: 'insights', label: 'Insights', icon: FaBrain }
+            { id: 'drafts', label: 'Drafts', icon: FaPencilAlt }
           ].map(item => (
             <Button
               key={item.id}
@@ -1739,7 +1855,15 @@ export default function Home() {
           ))}
         </nav>
 
-        <div className="p-4 border-t border-gray-800">
+        <div className="p-4 border-t border-gray-800 space-y-2">
+          <Button
+            variant="ghost"
+            className={`w-full justify-start ${sidebarCollapsed ? 'px-2' : 'px-4'} text-gray-400 hover:text-white hover:bg-gray-800`}
+            onClick={() => setShowHealthPopup(true)}
+          >
+            <FaHeart className={sidebarCollapsed ? '' : 'mr-3'} />
+            {!sidebarCollapsed && 'Health & Stats'}
+          </Button>
           <Button
             variant="ghost"
             className={`w-full justify-start ${sidebarCollapsed ? 'px-2' : 'px-4'} text-gray-400 hover:text-white hover:bg-gray-800`}
@@ -1767,15 +1891,14 @@ export default function Home() {
         {/* Screen Content */}
         {currentScreen === 'studio' && renderStudio()}
         {currentScreen === 'content' && renderContent()}
-        {currentScreen === 'explore' && renderExplore()}
         {currentScreen === 'drafts' && renderDrafts()}
-        {currentScreen === 'insights' && renderInsights()}
       </div>
 
       {/* Modals */}
       {renderDirectionLockModal()}
       {renderPreFlightModal()}
       {renderReflectionModal()}
+      {renderHealthStatsPopup()}
     </div>
   )
 }
