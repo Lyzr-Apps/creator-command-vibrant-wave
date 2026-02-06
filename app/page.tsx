@@ -154,7 +154,7 @@ interface ReflectionResponse {
 
 export default function Home() {
   // Navigation & Screen State
-  const [currentScreen, setCurrentScreen] = useState<'onboarding' | 'studio' | 'contrail' | 'explore' | 'drafts' | 'insights'>('onboarding')
+  const [currentScreen, setCurrentScreen] = useState<'onboarding' | 'studio' | 'content' | 'explore' | 'drafts' | 'insights'>('onboarding')
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [onboardingStep, setOnboardingStep] = useState(0)
 
@@ -170,11 +170,11 @@ export default function Home() {
   const [heroExpanded, setHeroExpanded] = useState(false)
   const [studioLoading, setStudioLoading] = useState(false)
 
-  // Contrail State
+  // Content State
   const [selectedInsights, setSelectedInsights] = useState<Pattern[]>([])
-  const [contrailFormat, setContrailFormat] = useState('carousel')
-  const [contrailEffort, setContrailEffort] = useState(50)
-  const [contrailTone, setContrailTone] = useState(50)
+  const [contentFormat, setContentFormat] = useState('carousel')
+  const [contentEffort, setContentEffort] = useState(50)
+  const [contentTone, setContentTone] = useState(50)
   const [showFace, setShowFace] = useState(false)
   const [postingTime, setPostingTime] = useState('morning')
   const [allPatterns, setAllPatterns] = useState<Pattern[]>([])
@@ -300,15 +300,15 @@ export default function Home() {
   const generateIdeas = async () => {
     setIdeaLoading(true)
     try {
-      const contrailContext = {
-        format: contrailFormat,
-        effort: contrailEffort > 66 ? 'High' : contrailEffort > 33 ? 'Medium' : 'Low',
-        tone: contrailTone > 66 ? 'Bold' : contrailTone > 33 ? 'Professional' : 'Soft',
+      const contentContext = {
+        format: contentFormat,
+        effort: contentEffort > 66 ? 'High' : contentEffort > 33 ? 'Medium' : 'Low',
+        tone: contentTone > 66 ? 'Bold' : contentTone > 33 ? 'Professional' : 'Soft',
         insights: selectedInsights.map(i => i.theme)
       }
 
       const result = await callAIAgent(
-        `Generate content ideas based on these constraints: ${JSON.stringify(contrailContext)}`,
+        `Generate content ideas based on these constraints: ${JSON.stringify(contentContext)}`,
         AGENT_IDS.ideaGenerator
       )
 
@@ -350,7 +350,7 @@ export default function Home() {
           <Card className="w-full max-w-2xl bg-white">
             <CardHeader className="text-center pb-4">
               <div className="flex justify-center mb-4">
-                <FaRocket className="text-[#3B82F6] text-6xl" />
+                <FaRocket className="text-[#9333EA] text-6xl" />
               </div>
               <CardTitle className="text-3xl">Welcome to CreatorPilot</CardTitle>
               <CardDescription className="text-lg mt-2">
@@ -380,7 +380,7 @@ export default function Home() {
                 </div>
               </div>
               <Button
-                className="w-full bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="w-full bg-[#9333EA] hover:bg-[#7E22CE]"
                 size="lg"
                 onClick={() => setOnboardingStep(1)}
               >
@@ -429,7 +429,7 @@ export default function Home() {
                   <FaArrowLeft className="mr-2" /> Back
                 </Button>
                 <Button
-                  className="flex-1 bg-[#3B82F6] hover:bg-[#2563EB]"
+                  className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE]"
                   onClick={() => setOnboardingStep(2)}
                   disabled={!contentType}
                 >
@@ -479,7 +479,7 @@ export default function Home() {
                   <FaArrowLeft className="mr-2" /> Back
                 </Button>
                 <Button
-                  className="flex-1 bg-[#3B82F6] hover:bg-[#2563EB]"
+                  className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE]"
                   onClick={() => setOnboardingStep(3)}
                   disabled={!goal}
                 >
@@ -499,7 +499,7 @@ export default function Home() {
             <CardHeader className="text-center">
               <div className="flex justify-center mb-4">
                 <div className="relative">
-                  <FaSync className="text-[#3B82F6] text-6xl animate-spin" />
+                  <FaSync className="text-[#9333EA] text-6xl animate-spin" />
                 </div>
               </div>
               <CardTitle className="text-2xl">Analyzing Your Content</CardTitle>
@@ -515,7 +515,7 @@ export default function Home() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                   <div
-                    className="bg-[#3B82F6] h-full transition-all duration-300 rounded-full"
+                    className="bg-[#9333EA] h-full transition-all duration-300 rounded-full"
                     style={{ width: `${syncProgress}%` }}
                   />
                 </div>
@@ -568,7 +568,7 @@ export default function Home() {
             <>
               {/* Hero Insight Card */}
               {heroInsight && (
-                <Card className="bg-gradient-to-br from-[#3B82F6] to-[#2563EB] border-0 text-white">
+                <Card className="bg-gradient-to-br from-[#9333EA] to-[#7E22CE] border-0 text-white">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -620,7 +620,7 @@ export default function Home() {
                   <Card key={idx} className="bg-white">
                     <CardHeader>
                       <div className="flex items-start justify-between mb-2">
-                        <span className="text-xs bg-[#3B82F6] text-white px-2 py-1 rounded">
+                        <span className="text-xs bg-[#9333EA] text-white px-2 py-1 rounded">
                           {card.tag}
                         </span>
                         {card.type === 'top_post' && <FaTrophy className="text-yellow-500" />}
@@ -670,10 +670,10 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Button
                   size="lg"
-                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white h-16"
-                  onClick={() => setCurrentScreen('contrail')}
+                  className="bg-[#9333EA] hover:bg-[#7E22CE] text-white h-16"
+                  onClick={() => setCurrentScreen('content')}
                 >
-                  <FaRocket className="mr-2" /> Set New Contrail
+                  <FaRocket className="mr-2" /> Set New Content
                 </Button>
                 <Button
                   size="lg"
@@ -704,12 +704,12 @@ export default function Home() {
     )
   }
 
-  const renderContrail = () => {
+  const renderContent = () => {
     return (
       <div className="flex-1 p-8 overflow-auto">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-white">Contrail Builder</h1>
+            <h1 className="text-4xl font-bold text-white">Content Builder</h1>
             <p className="text-gray-400 mt-1">Build your content strategy foundation</p>
           </div>
 
@@ -725,8 +725,8 @@ export default function Home() {
                       key={idx}
                       className={`cursor-pointer transition-all ${
                         isSelected
-                          ? 'bg-[#3B82F6] text-white border-[#3B82F6]'
-                          : 'bg-white hover:border-[#3B82F6]'
+                          ? 'bg-[#9333EA] text-white border-[#9333EA]'
+                          : 'bg-white hover:border-[#9333EA]'
                       }`}
                       onClick={() => {
                         if (isSelected) {
@@ -761,7 +761,7 @@ export default function Home() {
                   <div className="flex items-center justify-center h-full text-gray-500">
                     <div className="text-center">
                       <FaLightbulb className="text-5xl mx-auto mb-4 opacity-50" />
-                      <p>Select insights to build your contrail</p>
+                      <p>Select insights to build your content strategy</p>
                     </div>
                   </div>
                 ) : (
@@ -801,8 +801,8 @@ export default function Home() {
                     <label className="text-sm font-medium mb-2 block">Format</label>
                     <select
                       className="w-full p-2 border rounded"
-                      value={contrailFormat}
-                      onChange={(e) => setContrailFormat(e.target.value)}
+                      value={contentFormat}
+                      onChange={(e) => setContentFormat(e.target.value)}
                     >
                       <option value="carousel">Carousel</option>
                       <option value="reel">Reel</option>
@@ -817,8 +817,8 @@ export default function Home() {
                       type="range"
                       min="0"
                       max="100"
-                      value={contrailEffort}
-                      onChange={(e) => setContrailEffort(Number(e.target.value))}
+                      value={contentEffort}
+                      onChange={(e) => setContentEffort(Number(e.target.value))}
                       className="w-full"
                     />
                     <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -834,8 +834,8 @@ export default function Home() {
                       type="range"
                       min="0"
                       max="100"
-                      value={contrailTone}
-                      onChange={(e) => setContrailTone(Number(e.target.value))}
+                      value={contentTone}
+                      onChange={(e) => setContentTone(Number(e.target.value))}
                       className="w-full"
                     />
                     <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -850,7 +850,7 @@ export default function Home() {
                     <button
                       onClick={() => setShowFace(!showFace)}
                       className={`w-12 h-6 rounded-full transition-colors ${
-                        showFace ? 'bg-[#3B82F6]' : 'bg-gray-300'
+                        showFace ? 'bg-[#9333EA]' : 'bg-gray-300'
                       }`}
                     >
                       <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
@@ -876,7 +876,7 @@ export default function Home() {
               </Card>
 
               <Button
-                className="w-full bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="w-full bg-[#9333EA] hover:bg-[#7E22CE]"
                 size="lg"
                 disabled={selectedInsights.length === 0 || ideaLoading}
                 onClick={generateIdeas}
@@ -905,7 +905,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-4xl font-bold text-white">Explore Ideas</h1>
-              <p className="text-gray-400 mt-1">{ideas.length} ideas generated from your contrail</p>
+              <p className="text-gray-400 mt-1">{ideas.length} ideas generated from your content strategy</p>
             </div>
             <div className="flex gap-3">
               <Button
@@ -917,7 +917,7 @@ export default function Home() {
                 {showContextRail ? 'Hide' : 'Show'} Context
               </Button>
               <Button
-                className="bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="bg-[#9333EA] hover:bg-[#7E22CE]"
                 onClick={generateIdeas}
                 disabled={ideaLoading}
               >
@@ -932,7 +932,7 @@ export default function Home() {
               <Card key={idea.id} className="bg-white hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
-                    <span className="text-xs bg-[#3B82F6] text-white px-2 py-1 rounded">
+                    <span className="text-xs bg-[#9333EA] text-white px-2 py-1 rounded">
                       {idea.format}
                     </span>
                     <span className="text-xs text-gray-500">{idea.effort_level}</span>
@@ -982,7 +982,7 @@ export default function Home() {
                       </Button>
                       <Button
                         size="sm"
-                        className="flex-1 bg-[#3B82F6] hover:bg-[#2563EB]"
+                        className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE]"
                         onClick={() => {
                           setSelectedIdea(idea)
                           setShowDirectionLock(true)
@@ -1073,7 +1073,7 @@ export default function Home() {
                     <button
                       onClick={() => setUseVulnerability(!useVulnerability)}
                       className={`w-12 h-6 rounded-full transition-colors ${
-                        useVulnerability ? 'bg-[#3B82F6]' : 'bg-gray-300'
+                        useVulnerability ? 'bg-[#9333EA]' : 'bg-gray-300'
                       }`}
                     >
                       <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
@@ -1087,7 +1087,7 @@ export default function Home() {
                     <button
                       onClick={() => setUseControversy(!useControversy)}
                       className={`w-12 h-6 rounded-full transition-colors ${
-                        useControversy ? 'bg-[#3B82F6]' : 'bg-gray-300'
+                        useControversy ? 'bg-[#9333EA]' : 'bg-gray-300'
                       }`}
                     >
                       <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
@@ -1101,7 +1101,7 @@ export default function Home() {
                     <button
                       onClick={() => setUsePractical(!usePractical)}
                       className={`w-12 h-6 rounded-full transition-colors ${
-                        usePractical ? 'bg-[#3B82F6]' : 'bg-gray-300'
+                        usePractical ? 'bg-[#9333EA]' : 'bg-gray-300'
                       }`}
                     >
                       <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
@@ -1120,7 +1120,7 @@ export default function Home() {
               </div>
 
               <Button
-                className="w-full bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="w-full bg-[#9333EA] hover:bg-[#7E22CE]"
                 onClick={() => {
                   setShowRefinementPanel(false)
                   setShowDirectionLock(true)
@@ -1155,7 +1155,7 @@ export default function Home() {
                 <FaHistory className="mr-2" /> Version History
               </Button>
               <Button
-                className="bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="bg-[#9333EA] hover:bg-[#7E22CE]"
                 onClick={() => setShowPreFlight(true)}
               >
                 <FaRocket className="mr-2" /> Pre-Flight Check
@@ -1175,7 +1175,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <textarea
-                  className="w-full p-3 border rounded-lg min-h-[100px] resize-none focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                  className="w-full p-3 border rounded-lg min-h-[100px] resize-none focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
                   placeholder="Write your attention-grabbing hook..."
                   value={currentDraft.hook}
                   onChange={(e) => setCurrentDraft(prev => ({ ...prev, hook: e.target.value }))}
@@ -1201,7 +1201,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <textarea
-                  className="w-full p-3 border rounded-lg min-h-[300px] resize-none focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                  className="w-full p-3 border rounded-lg min-h-[300px] resize-none focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
                   placeholder="Write your main content..."
                   value={currentDraft.body}
                   onChange={(e) => setCurrentDraft(prev => ({ ...prev, body: e.target.value }))}
@@ -1227,7 +1227,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <textarea
-                  className="w-full p-3 border rounded-lg min-h-[80px] resize-none focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                  className="w-full p-3 border rounded-lg min-h-[80px] resize-none focus:outline-none focus:ring-2 focus:ring-[#9333EA]"
                   placeholder="Write your call to action..."
                   value={currentDraft.cta}
                   onChange={(e) => setCurrentDraft(prev => ({ ...prev, cta: e.target.value }))}
@@ -1344,8 +1344,8 @@ export default function Home() {
               <div className="text-sm text-gray-600 mt-1 italic">"{selectedIdea.hook}"</div>
             </div>
 
-            <div className="bg-blue-50 rounded-lg p-4">
-              <h4 className="font-semibold mb-2">Contrail Summary</h4>
+            <div className="bg-purple-50 rounded-lg p-4">
+              <h4 className="font-semibold mb-2">Content Strategy Summary</h4>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>
                   <span className="text-gray-600">Format:</span>
@@ -1408,7 +1408,7 @@ export default function Home() {
                 Cancel
               </Button>
               <Button
-                className="flex-1 bg-[#3B82F6] hover:bg-[#2563EB]"
+                className="flex-1 bg-[#9333EA] hover:bg-[#7E22CE]"
                 onClick={() => {
                   setCurrentDraft({
                     hook: selectedIdea.hook,
@@ -1589,10 +1589,10 @@ export default function Home() {
             </div>
 
             <Button
-              className="w-full bg-[#3B82F6] hover:bg-[#2563EB]"
+              className="w-full bg-[#9333EA] hover:bg-[#7E22CE]"
               onClick={() => {
                 setShowReflection(false)
-                setCurrentScreen('contrail')
+                setCurrentScreen('content')
               }}
             >
               <FaRocket className="mr-2" /> Apply This Learning
@@ -1618,7 +1618,7 @@ export default function Home() {
         <div className="p-4 border-b border-gray-800 flex items-center justify-between">
           {!sidebarCollapsed && (
             <div className="flex items-center gap-2">
-              <FaRocket className="text-[#3B82F6] text-2xl" />
+              <FaRocket className="text-[#9333EA] text-2xl" />
               <span className="text-white font-bold text-lg">CreatorPilot</span>
             </div>
           )}
@@ -1635,7 +1635,7 @@ export default function Home() {
         <nav className="flex-1 p-4 space-y-2">
           {[
             { id: 'studio', label: 'Studio', icon: FaChartBar },
-            { id: 'contrail', label: 'Contrail', icon: FaRocket },
+            { id: 'content', label: 'Content', icon: FaRocket },
             { id: 'explore', label: 'Explore', icon: FaLightbulb },
             { id: 'drafts', label: 'Drafts', icon: FaPencilAlt },
             { id: 'insights', label: 'Insights', icon: FaBrain }
@@ -1645,7 +1645,7 @@ export default function Home() {
               variant={currentScreen === item.id ? 'default' : 'ghost'}
               className={`w-full justify-start ${sidebarCollapsed ? 'px-2' : 'px-4'} ${
                 currentScreen === item.id
-                  ? 'bg-[#3B82F6] text-white'
+                  ? 'bg-[#9333EA] text-white'
                   : 'text-gray-400 hover:text-white hover:bg-gray-800'
               }`}
               onClick={() => setCurrentScreen(item.id as any)}
@@ -1675,7 +1675,7 @@ export default function Home() {
             Instagram Creator Dashboard
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#9333EA] to-[#7E22CE] flex items-center justify-center">
               <FaUser className="text-white" />
             </div>
           </div>
@@ -1683,7 +1683,7 @@ export default function Home() {
 
         {/* Screen Content */}
         {currentScreen === 'studio' && renderStudio()}
-        {currentScreen === 'contrail' && renderContrail()}
+        {currentScreen === 'content' && renderContent()}
         {currentScreen === 'explore' && renderExplore()}
         {currentScreen === 'drafts' && renderDrafts()}
         {currentScreen === 'insights' && renderInsights()}
